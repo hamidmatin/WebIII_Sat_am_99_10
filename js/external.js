@@ -1,0 +1,1 @@
+document.getElementById('p1').style.fontSize = '32px';
