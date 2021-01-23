@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+    <p id="p8"></p>
+
+    <script>
+      let st1 = {
+        firstName: 'Mohammad',
+        lastName: 'Azimi',
+        fullName: function () {
+          // var firstName = 'hamid'
+          // var lastName = 'matin'
+
+          console.log(this);
+
+          // return st1.firstName + ' ' + st1.lastName;
+          return this.firstName + ' ' + this.lastName;
+        },
+      };
+
+      //   document.getElementById('p1').innerHTML = st1.firstName + ' ' + st1.lastName;
+      document.getElementById('p1').innerHTML = st1.fullName();
+
+      let st2 = {
+        firstName: 'Amir',
+        lastName: 'Ebrahimi',
+        fullName: function () {
+          return this.firstName + ' ' + this.lastName;
+        },
+      };
+      //   document.getElementById('p2').innerHTML = st2.firstName + ' ' + st2.lastName;
+      document.getElementById('p2').innerHTML = st2.fullName();
+
+      /************* Set  *********/
+      st1.firstName = 'Mohammad Navid';
+      document.getElementById('p3').innerHTML = st1.fullName();
+      
+      /**********/
+      st1.firstname = 'hamid';  // Add a new member
+      document.getElementById('p4').innerHTML = st1.fullName();
+
+      /* Object Constructor Function */
+      let Student = function(fname, lastName){
+        //   console.log(this)
+          this.firstName = fname;
+          this.lastName = lastName;
+          this.fullName = function(){
+           return this.firstName + ' ' + this.lastName; 
+          }
+        //   console.log(this)
+      }
+
+    //   let st3 = Student();
+      let st3 = new Student('Abolfazl', 'Soltani');  //  Create new Object
+      console.log(st3)
+
+      let st4 = new Student('Mohammad Mehdi', 'Moalemi');
+      console.log(st4)
+
+      document.getElementById('p5').innerHTML = st3.fullName();
+      document.getElementById('p6').innerHTML = st4.fullName();
+    //   console.log(firstName)
+    
+    </script>
+  </body>
+</html>
