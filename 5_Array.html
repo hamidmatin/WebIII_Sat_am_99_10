@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+    <p id="p8"></p>
+    <p id="p9"></p>
+    <p id="p10"></p>
+    <p id="p11"></p>
+
+    <script>
+      var car1 = 'Saab';
+      var car2 = 'Volvo';
+      var car3 = 'BMW';
+
+      /*
+        var array = [value, value, value, .......];
+        item => member
+        length => count of items
+        index => 0 .... length-1
+        
+        GET
+        variable = array[index]
+        
+        SET
+        array[index] = value;
+        
+      */
+
+      var cars = ['Saab', 'Volvo', 'BMW'];
+
+      document.getElementById('p1').innerHTML = cars;
+
+      document.getElementById('p2').innerHTML = 'cars.length = ' + cars.length;
+
+      // Get Item Value
+      document.getElementById('p3').innerHTML = 'cars[1] = ' + cars[1];
+
+      // Set Item Value
+      cars[1] = 'Peykan';
+      document.getElementById('p4').innerHTML = cars;
+
+      var students = [
+        {
+          firstName: 'Abolfazl',
+          lastName: 'Soltani',
+        },
+        {
+          firstName: 'Amir',
+          lastName: 'Ebrahimi',
+        },
+        {
+          firstName: 'Mohammad Mehdi',
+          lastName: 'Moallemi',
+        },
+        {
+          firstName: 'Mohammad Navid',
+          lastName: 'Azimi',
+        },
+        {
+          firstName: 'Pezhman',
+          lastName: 'Namdar',
+        },
+      ];
+
+      document.getElementById('p5').innerHTML = 'students.length = ' + students.length;
+
+      document.getElementById('p6').innerHTML = students[0].firstName + ' ' + students[0].lastName;
+
+      var i = 1;
+      document.getElementById('p7').innerHTML = students[i].firstName + ' ' + students[i].lastName;
+
+      ++i;
+      document.getElementById('p8').innerHTML = students[i].firstName + ' ' + students[i].lastName;
+
+      i++;
+      document.getElementById('p9').innerHTML = students[i].firstName + ' ' + students[i].lastName;
+    </script>
+  </body>
+</html>
