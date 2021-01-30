@@ -7,7 +7,7 @@
     <style>
       .test {
         font-size: 20px;
-        background-color: blueviolet;
+        background-color: rgb(217, 183, 248);
         padding: 20px;
       }
     </style>
@@ -17,20 +17,21 @@
     <button onclick="getInnerText();">get InnerText</button>
     <button onclick="setInnerHTML();">set InnerHTML</button>
     <button onclick="setInnerText();">set InnerText</button>
-    <br />
-    <button onclick="setStyle();">set style</button>
+    <hr />
+    <button onclick="setStyle();">Set style</button>
+    <button onclick="removeProperty();">Remove Property</button>
     <button onclick="addClass();">Add Class</button>
     <button onclick="removeClass();">Remove Class</button>
     <button onclick="toggleClass();">Toggle Class</button>
-    <br />
+    <hr />
     <button onclick="getAttr();">Get Attribute</button>
     <button onclick="setAttr();">Set Attribute</button>
     <button onclick="getAttrValue();">Get Attribute value</button>
     <button onclick="setAttrValue();">Set Attribute value</button>
-    <br />
+    <hr />
     <h1 id="heading">JavaScript HTML DOM Elements</h1>
 
-    <p id="paragraph"  style="color: green;" title="d kldgs dlkgs lg s;ghslkdg dslk">
+    <p id="paragraph" style="color: green" title="d kldgs dlkgs lg s;ghslkdg dslk">
       This page teaches you how to <b>find</b> and access <i>HTML</i> elements in an HTML page.
     </p>
 
@@ -39,7 +40,7 @@
 
     <p>To do so, you have to find the elements first. There are several ways to do this:</p>
     <input type="text" id="inp1" value="Sample jbkj k k" />
-    <br>
+    <br />
     <img src="images/pic_bulboff.gif" alt="" id="img1" class="active" />
     <script>
       /*
@@ -55,10 +56,10 @@
         document.querySelector('css selector'); => 1 tag
         document.querySelectorAll('css selector'); => list
       */
-      
+
       console.log(window);
       console.log(console);
-      console.clear()
+      console.clear();
 
       console.log(document);
 
@@ -82,6 +83,7 @@
         element.event
       */
       var getInnerHTML = function () {
+        console.log(element.attributes.length);
         alert(element.innerHTML);
       };
       var getInnerText = function () {
@@ -98,6 +100,13 @@
         element.style.color = 'red';
         element.style.borderBottom = '3px ridge green';
         element.style.borderRadius = '5px';
+        element.style.borderTop = '3px ridge green';
+        element.style.borderRadius = '5px';
+      };
+
+      var removeProperty = function () {
+        element.style.removeProperty('color');
+        element.style.removeProperty('border-top');
       };
 
       var addClass = function () {
@@ -111,9 +120,8 @@
       };
 
       var getAttr = function () {
-        /* element.attribute; */
-        /* element.getAttribute('attr'); */
-       
+        /* (1) element.attribute; */
+        /* (2) element.getAttribute('attr'); */
 
         // alert(element.title);
         // alert(element.id);
@@ -121,8 +129,8 @@
         alert(document.getElementById('img1').src);
       };
       var setAttr = function () {
-        /* element.attribute = 'value' */
-        /* element.setAttribute('attr', 'value'); */
+        /* (1) element.attribute = 'value' */
+        /* (2) element.setAttribute('attr', 'value'); */
 
         element.title = '--------------------';
 
