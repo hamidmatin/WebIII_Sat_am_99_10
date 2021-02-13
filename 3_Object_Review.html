@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <script>
+        function Student(fName, lName){
+            this.FirstName = fName;
+            this.lastName = lName;
+            // this.fullName = function(){
+            //     alert('sdsd')
+            // }
+        }
+
+        let st1 = new Student('Mohammad', 'Amiri');
+        let st2 = new Student('Morteza', 'Bayanlou');
+        
+        // st1.fullName = function(){
+        //     return this.FirstName + ' ' + this.lastName;
+        // }
+        // st2.fullName = function(){
+        //     return this.FirstName + ' ' + this.lastName;
+        // }
+        
+      
+        Student.prototype.fullName = function(){
+            return this.FirstName + ' ' + this.lastName;
+        }
+
+        
+        document.getElementById('p1').innerHTML = st1.fullName();
+        document.getElementById('p2').innerHTML = st2.fullName();
+    </script>
+</body>
+</html>
