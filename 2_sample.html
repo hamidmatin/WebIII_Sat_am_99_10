@@ -25,17 +25,32 @@
     </p>
     <input type="text" id="search" value="test"> <button id="btn-search">Search</button>
     <script>
+      
+      var mainText = document.getElementById('p1').innerHTML;
+      
       document.getElementById('btn-search').onclick = function(){
         
         var searchString = document.getElementById('search').value.trim();
-        var text = document.getElementById('p1').innerHTML;
+
+        var text = mainText;
 
         var findPos = text.indexOf(searchString);
         while(findPos != -1){
-          console.log(findPos)
-          findPos = text.indexOf(searchString, findPos + 1);
+          console.log(findPos);
+
+          console.log(text.slice(0, findPos));
+          var before = text.slice(0, findPos);
+
+          var after = text.slice(findPos + searchString.length);
+          console.log(after)
+
+          text = before + "<mark>" + searchString + "</mark>" + after;
+          // break;
+          findPos = text.indexOf(searchString, findPos + 1 + 6);
         }
 
+        document.getElementById('p1').innerHTML = text;
+        document.getElementById('search').value = '';
       }
     </script>
   </body>

@@ -2,26 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-      <p id="p1"></p>
-      <p id="p2"></p>
-      <p id="p3"></p>
-      <p id="p4"></p>
-    <script>
-      /*
-        "string"
-        'string'
-        
-        `string  ${variable}`
-      */
-
-      let fName = 'Mohammad';
-      let lName = `Amiri`;
-
-      let longString = `HTML is a markup language that web browsers use to interpret and compose
+    <p id="p1">
+      HTML is a markup language that web browsers use to interpret and compose
       text, images, and other material into visual or audible web pages. Default
       characteristics for every item of HTML markup are defined in the browser,
       and these characteristics can be altered or enhanced by the web page
@@ -34,27 +21,21 @@
       format documents. However, the SGML concept of generalized markup is based
       on elements (nested annotated ranges with attributes) rather than merely
       print effects, with also the separation of structure and markup; HTML has
-      been progressively moved in this direction with CSS.`;
-
-      let a = 10, b = 30;
-
-      document.getElementById('p1').innerHTML = "a = " + a + ", b = " + b + ", a + b = " + (a + b);
-      document.getElementById('p2').innerHTML = `a = ${a}, b = ${b}, a + b = ${a + b}`;
-
-
-      let fullName = `${fName} ${lName}`;
-
-      document.getElementById('p3').innerHTML = fullName;
-
-      let x = 9.2655;
-      document.getElementById('p4').innerHTML = `
-        x.toExponential(0) = ${x.toExponential(0)}<br>
-        x.toExponential(2) = ${x.toExponential(2)}<br>
-        x.toExponential(4) = ${x.toExponential(4)}<br>
-      `;
+      been progressively moved in this direction with CSS.
+    </p>
+    <input type="text" id="search" value="test"> <button id="btn-search">Search</button>
+    <script>
       
+      var mainText = document.getElementById('p1').innerHTML;
       
-
+      document.getElementById('btn-search').onclick = function(){
+        
+        var searchString = document.getElementById('search').value.trim();
+        
+        var inpRep = new RegExp(searchString, "gi");
+        var text = mainText.replace(inpRep, `<mark>${searchString}</mark>`)
+        document.getElementById('p1').innerHTML = text;
+      }
     </script>
   </body>
 </html>
