@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #div1 {
+        width: 250px;
+        height: 250px;
+        background-color: red;
+        transition: 2s;
+        opacity: 0;
+        display: none;
+      }
+      .show {
+        display: block !important;
+      }
+
+      .fade {
+        opacity: 1 !important;
+      }
+      .move-right {
+        transform: translateX(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1">Set Timeout</button>
+    <button id="btn2">Show</button>
+    <button id="btn3">Hide</button>
+    <button id="btn4">Intervall</button>
+    <button id="btn5">Clear Interval</button>
+    <button id="btn6">Clear Timeout</button>
+    <div id="div1"></div>
+    <script>
+      let myInterval, myTimeout;
+
+      document.getElementById('btn1').onclick = function () {
+        myTimeout = setTimeout(function () {
+          alert('Timeout');
+        }, 3000);
+      };
+      document.getElementById('btn2').onclick = function () {
+        let div1 = document.getElementById('div1');
+
+        div1.classList.add('show');
+        setTimeout(function () {
+          div1.classList.add('fade');
+        }, 100);
+      };
+      document.getElementById('btn3').onclick = function () {
+        let div1 = document.getElementById('div1');
+
+        div1.classList.remove('fade');
+        setTimeout(function () {
+          div1.classList.remove('show');
+        }, 2000);
+      };
+      /************************/
+      document.getElementById('btn4').onclick = function () {
+        let div1 = document.getElementById('div1');
+
+        div1.classList.toggle('move-right');
+        myInterval = setInterval(function () {
+          div1.classList.toggle('move-right');
+        }, 2000);
+      };
+
+      document.getElementById('btn5').onclick = function () {
+        clearInterval(myInterval)
+      }
+
+      document.getElementById('btn6').onclick = function () {
+        clearTimeout(myTimeout)
+      }
+    </script>
+  </body>
+</html>

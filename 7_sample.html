@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <p class="class2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+  <p class="class2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptatibus dolores aspernatur vitae, dolorum eveniet, sint similique aliquid asperiores quibusdam eligendi eos distinctio quaerat iste rem explicabo facere minima saepe?</p>
+
+  <script>
+    let class1List = document.getElementsByClassName('class1');
+    console.log(class1List)
+
+    class1List[0].style.color = 'red';
+
+    let class2List = document.getElementsByClassName('class2');
+
+    for (let index = 0; index < class2List.length; index++) {
+      class2List[index].style.backgroundColor = 'lightgreen';
+    }
+
+    // class2List.forEach(function(elememnt){
+    //   elememnt.style.color='red'
+    // });
+
+    let class3List = document.querySelectorAll('.class3');
+     class3List.forEach(function(elememnt){
+      elememnt.style.color='red'
+    });
+
+  </script>
+</body>
+</html>
