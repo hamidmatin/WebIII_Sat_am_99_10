@@ -36,6 +36,24 @@
         var text = mainText.replace(inpRep, `<mark>${searchString}</mark>`)
         document.getElementById('p1').innerHTML = text;
       }
+
+      document.getElementById('search').onkeyup = function (e){
+        console.log(document.getElementById('search').value)
+        console.log(this.value)
+        console.log(e.target.value);
+
+        var searchString = e.target.value.trim();
+        
+        var inpRep = new RegExp(searchString, "gi");
+        var text = mainText.replace(inpRep, `<mark>${searchString}</mark>`)
+        document.getElementById('p1').innerHTML = text;
+      }
+
+      const testEvent = function(e){
+        console.log(e.target)
+      }
+      document.getElementById('search').onclick = testEvent;
+      document.getElementById('p1').ondblclick = t5_Clouser.htmlestEvent;
     </script>
   </body>
 </html>
