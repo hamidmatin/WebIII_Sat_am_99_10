@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      .row {
+        display: flex;
+      }
+      .counter {
+        width: 33.3333%;
+        line-height: 4;
+        font-size: 90px;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(60, 156, 201);
+      }
+      .time{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: red
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="time"></div>
+    <div class="row">
+      <div class="counter hour">0</div>
+      <div class="counter minute">0</div>
+      <div class="counter second">0</div>
+
+      <script>
+        let hour = 13,
+          minute = 7,
+          second = 28;
+        let counterHour = 0,
+          counterMinute = 0,
+          counterSecond = 0;
+        let intervalHour = 0,
+          intervalMinute = 0,
+          intervalSecond = 0;
+        let duration = 2000;
+
+        intervalHour = duration / hour;
+        intervalMinute = duration / minute;
+        intervalSecond = duration / second;
+
+        const setHour = setInterval(() => {
+          counterHour++;
+          document.querySelector('.hour').innerHTML = counterHour;
+          if (counterHour === hour) {
+            clearInterval(setHour);
+          }
+        }, intervalHour);
+
+        const setMinute = setInterval(() => {
+          counterMinute++;
+          document.querySelector('.minute').innerHTML = counterMinute;
+          if (counterMinute === minute) {
+            clearInterval(setMinute);
+          }
+        }, intervalMinute);
+
+        const setSecond = setInterval(() => {
+          counterSecond++;
+          document.querySelector('.second').innerHTML = counterSecond;
+          if (counterSecond === second) {
+            clearInterval(setSecond);
+          }
+        }, intervalSecond);
+
+        setInterval(() => {
+          let time = (new Date);
+          let persianDate = time.toLocaleDateString('fa') 
+          let persianTime =  time.toLocaleTimeString('fa')
+
+          let date2 = new Date(2021, 2, 20, 13, 7, 28);
+
+          
+          // document.querySelector('.time').innerHTML = persianDate + ', ' + persianTime;
+          console.log(time.getUTCHours(), time.getUTCMinutes())
+          
+          let diffDate = new Date(date2 - time);
+          let diffYear = diffDate.getFullYear() - 1970;
+          let diffMonth = diffDate.getMonth;
+          let diffDay = diffDate.getDate() - 1;
+          let diffHour = diffDate.getHours() - 1;
+          let diffMinute = diffDate.getMinutes() - 1;
+          let diffSecond = diffDate.getSeconds() - 1;
+         
+          document.querySelector('.time').innerHTML = new Date(diffDate);
+        }, 1000);
+      </script>
+    </div>
+  </body>
+</html>
