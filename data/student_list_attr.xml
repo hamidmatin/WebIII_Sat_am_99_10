@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+  <student firstname="Sadegh" lastname="Abdoli" score="85"/>
+  <student firstname="Alireza" lastname="Mohammadi" score="80"/>
+  <student firstname="Maede" lastname="Makki" score="85" />
+</students>

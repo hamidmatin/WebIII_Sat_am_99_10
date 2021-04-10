@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn-load-name">Load Name</button>
+    <button id="page1">Load Page 1</button>
+    <button id="page2">Load Page 2</button>
+    <button id="xml1">Load Student XML 1</button>
+    <h1></h1>
+    <div id="main"></div>
+
+    <script>
+      document.getElementById('btn-load-name').onclick = function () {
+        const xhttp = new XMLHttpRequest();
+
+        console.log(xhttp.readyState);
+
+        xhttp.onreadystatechange = function () {
+          console.log(this.readyState);
+          console.log(this.status);
+
+          if (this.readyState === 4 && this.status === 200) {
+            console.log('Answer is ready');
+            console.log(this.responseText);
+
+            document.querySelector('h1').innerHTML = this.responseText;
+          }
+        };
+
+        /*
+            open(method, url, async)
+                method :
+                    'GET'    جهت دریافت اطلاعات
+                    'POST'   جهت ایجاد اطلاعت جدید
+                    'DELETE' برای حذف اطلاعات
+                    'PUT'    برای به روز رسانی
+                    'PATCH'
+        */
+        xhttp.open('GET', '/data/my-data.txt', true);
+
+        xhttp.send();
+      };
+
+      document.getElementById('page1').onclick = function () {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', '/partial_page/page1.html', true);
+        xhttp.send();
+
+        xhttp.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            document.getElementById('main').innerHTML = this.responseText;
+          }
+        };
+      };
+      document.getElementById('page2').onclick = function () {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', '/partial_page/page2.html', true);
+        xhttp.send();
+
+        xhttp.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            document.getElementById('main').innerHTML = this.responseText;
+          }
+        };
+      };
+      document.getElementById('xml1').onclick = function () {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', '/data/student_list.xml', true);
+        xhttp.send();
+
+        xhttp.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            // document.getElementById('main').innerHTML = this.responseText;
+            console.log(this.response)
+            console.log(this.responseText)
+            console.log(this.responseXML)
+            
+            let studentList =this.responseXML.querySelectorAll('student')
+
+            for (const student of studentList) {
+              console.log(student.innerHTML)
+              
+            }
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
