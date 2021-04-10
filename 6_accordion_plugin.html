@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/accordion/accordion.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <h3 class="title">Item 1</h3>
+      <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sint
+        vel ea incidunt, corrupti, excepturi dolores pariatur, aut possimus modi
+        voluptatibus dignissimos accusantium assumenda? Autem quidem et tenetur
+        laudantium illum?
+      </div>
+
+      <h3 class="title">Item 2</h3>
+      <div class="content">
+        <img src="images/54-1024x575.webp" alt="" />
+      </div>
+      <h3 class="title">Item 3</h3>
+      <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sint
+        vel ea incidunt, corrupti, excepturi dolores pariatur, aut possimus modi
+        voluptatibus dignissimos accusantium assumenda? Autem quidem et tenetur
+        laudantium illum?
+      </div>
+
+      <h3 class="title">Item 4</h3>
+      <div class="content">
+        <label>Check 1 <input type="checkbox" /></label>
+        <label>Check 2 <input type="checkbox" /></label>
+        <label>Check 3 <input type="checkbox" /></label>
+      </div>
+
+      <h3 class="title">Item 5</h3>
+      <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sint
+        vel ea incidunt, corrupti, excepturi dolores pariatur, aut possimus modi
+        voluptatibus dignissimos accusantium assumenda? Autem quidem et tenetur
+        laudantium illum?
+      </div>
+
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="lib/accordion/accordion.js"></script>
+      <script>
+        $(function(){
+          $('.accordion').accordion({singleSelect: true, duration: 300});
+        })
+      </script>
+    </div>
+  </body>
+</html>

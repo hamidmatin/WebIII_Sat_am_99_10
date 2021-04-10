@@ -1,0 +1,13 @@
+(function ($) {
+  $.fn.pluginName = function (options) {
+    const defs = {
+      .....
+    };
+
+    const opts = $.extend({}, defs, options);
+
+    return this.each(function () {
+      ....
+    });
+  };
+})(jQuery);
