@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      .card {
+        width: 33.33%;
+        padding: 16px;
+      }
+      .card .card-body {
+        border: 1px solid #f1f1f1;
+        box-shadow: 0 2px 4px -2px rgb(61, 61, 61);
+        display: flex;
+        flex-flow: row wrap;
+      }
+      .card .label,
+      .card .value {
+        display: block;
+        padding: 8px 16px;
+        margin-bottom: 10px;
+      }
+      .card .label {
+        font-weight: 900;
+        width: 30%;
+        /* background-color: coral; */
+      }
+      .card .value {
+        width: 70%;
+        /* background-color: darksalmon; */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1">jQuery AJAX</button>
+    <button id="btn2">Use API</button>
+    <hr />
+    <div id="main"></div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('#btn1').click(function () {
+          /********
+           *
+           * $.ajax(url, setting?)
+           * $.ajax(setting)
+           * setting =>
+           *      url : 'url'
+           *      type: 'GET or POST or DELETE or PUT default GET
+           *         **You should use type if you're using versions of jQuery prior to 1.9.0.**
+           *      method: => type
+           *      data: value
+           *      beforeSend: function(jqXHR, setting){}
+           *      success: function(data, textStatus, jqXHR){}
+           *      error: function(jqXHR, textStatus, errorThrown ){}
+           *      complete: function(jqXHR, textStatus){}
+           *
+           */
+
+          $.ajax({
+            url: '/data/student.json',
+            method: 'GET',
+            success: function (data) {
+              console.log('success', data);
+
+              showStudentList(data);
+            },
+            error: function (jqXHR) {
+              console.log('error', jqXHR);
+            },
+            complete: function (jqXHR) {
+              console.log('complete', jqXHR);
+            },
+          });
+        });
+
+        $('#btn2').click(function(){
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/users',
+                method: 'GET',
+                success: function(data){
+                    console.log(data)
+                },
+                error: function(jqXHR){
+                    console.log(jqXHR)
+                }
+            })
+        })
+
+        const showStudentList = function (studentList) {
+          let row = '<div class="row">';
+          studentList.forEach(function (student) {
+            row += `
+                <div class="card">
+                  <div class="card-body">
+                    <span class="label">First Name :</span> 
+                    <span class="value">${student.firstName}</span> 
+                    <span class="label">Last Name :</span> 
+                    <span class="value">${student.lastName}</span> 
+                    <span class="label">Score :</span> 
+                    <span class="value">${student.score}</span> 
+                  </div>
+                </div>
+              `;
+          });
+
+          row += '</div>';
+
+          $('#main').html(row);
+        };
+      });
+    </script>
+  </body>
+</html>

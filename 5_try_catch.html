@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <p>Please input a number between 5 and 10:</p>
+
+    <input id="inp" type="text" />
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="p01"></p>
+
+    <script>
+      try {
+        adddlert('Welcome guest!');
+      } catch (err) {
+        console.log(err);
+        console.log(err.name);
+        console.log(err.message);
+        document.getElementById('demo').innerHTML = err.message;
+      }
+
+      function myFunction() {
+        var message, x;
+        message = document.getElementById('p01');
+        message.innerHTML = '';
+        x = document.getElementById('inp').value;
+        try {
+          if (x == '') throw 'empty';
+          if (isNaN(x)) throw 'not a number';
+          x = Number(x);
+          if (x < 5) throw 'too low';
+          if (x > 10) throw 'too high';
+        } catch (err) {
+          message.innerHTML = 'Input is ' + err;
+        } finally {
+          document.getElementById('inp').value = '';
+        }
+      }
+    </script>
+  </body>
+</html>

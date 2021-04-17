@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .id {
+        width: 10%;
+      }
+      .name {
+        width: 35%;
+      }
+      .user-name {
+        width: 35%;
+      }
+      .email {
+        width: 20%;
+      }
+      .user-row {
+        display: flex;
+        border-top: 1px solid #ccc;
+        padding: 8px 0;
+      }
+      .loading {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0000006c;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loading span {
+        display: block;
+        width: 250px;
+        height: 250px;
+        border: 6px solid red;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        animation: loading 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) infinite;
+      }
+      @keyframes loading {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .hide {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading hide"><span></span></div>
+    <div class="container p-5">
+      <button class="btn btn-success mb-3" onclick="loadData()">
+        Load Data
+      </button>
+
+      <div class="card p-3">
+        <div class="card-title d-flex px-3">
+          <div class="fw-bold id">id</div>
+          <div class="fw-bold name">Name</div>
+          <div class="fw-bold user-name">User Name</div>
+          <div class="fw-bold email">E-Mail</div>
+        </div>
+        <div class="card-body"></div>
+      </div>
+    </div>
+    <script>
+      let userList = [];
+
+      /******
+       *
+       */
+      const fillTable = function () {
+        document.querySelector('.card-body').innerHTML = '';
+        userList.forEach(function (user) {
+          let row = `<div class="user-row">
+            <div class="id">${user.id}</div>
+            <div class="name">${user.name}</div>
+            <div class="user-name">${user.username}</div>
+            <div class="email">${user.email}</div>
+          </div>`;
+          document.querySelector('.card-body').innerHTML += row;
+        });
+      };
+      /***
+       *
+       *
+       *
+       */
+      const loadData = function () {
+        document.querySelector('.loading').classList.remove('hide');
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open('GET', 'https://jsonplaceholder.typicode.com/users');
+
+        xhttp.send();
+
+        // setTimeout(function(){
+        //   xhttp.send();
+        // }, 2000)
+
+        xhttp.onreadystatechange = function () {
+          if (this.readyState === 4 && this.status === 200) {
+            console.log(this.responseText);
+            console.log(this.responseXML);
+
+            console.log(JSON.parse(this.responseText));
+
+            userList = JSON.parse(this.responseText);
+
+            fillTable();
+            document.querySelector('.loading').classList.add('hide');
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
