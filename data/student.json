@@ -1,0 +1,56 @@
+[
+    {
+        "id": "1",
+        "firstName" : "Sadegh",
+        "lastName": "Abdoli",
+        "score": 85
+    },
+    {
+        "id": "2",
+        "firstName" : "Alireza",
+        "lastName": "Mohammadi",
+        "score": 80
+    },
+    {
+        "id": "3",
+        "firstName" : "Maede",
+        "lastName": "Makki",
+        "score": 85
+    },
+    {
+        "id": "4",
+        "firstName" : "Abolfazl",
+        "lastName": "Soltani",
+        "score": 90
+    },
+    {
+        "id": "5",
+        "firstName" : "Amir",
+        "lastName": "Ebrahimi",
+        "score": 90
+    },
+    {
+        "id": "6",
+        "firstName" : "Mohammad Mehdi",
+        "lastName": "Moallemi",
+        "score": 80
+    },
+    {
+        "id": "7",
+        "firstName" : "Mohammad Navid",
+        "lastName": "Azimi",
+        "score": 82
+    },
+    {
+        "id": "8",
+        "firstName" : "Morteza",
+        "lastName": "Bayanlou",
+        "score": 90
+    },
+    {
+        "id": "9",
+        "firstName" : "Pejman",
+        "lastName": "Namdar",
+        "score": 85
+    }
+]
